@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- V -->
+    <div ng-app="my-app" ng-init="name='content'">
+        <!-- 控制器 等价于组件 -->
+        <header ng-controller="headerCtrl">
+            <p>{{name}}</p>
+        </header>
+        <p>{{name}}</p>
+        <footer ng-controller="footerCtrl">
+            <p>{{name}}</p>
+        </footer>
+    </div>
+
+
+    <script src="../js/angular.js"></script>
+    <script>
+        // 闭包用在哪里，锁死作用域，闭包就是内部函数读取外部函数的参数
+        (() => {
+            // module 模块 model 数据层的 
+            let app = angular.module("my-app", [])
+
+            app.controller("headerCtrl", ($scope) => {
+                // M
+                $scope.name = "header"
+            })
+            app.controller("footerCtrl", ($scope) => {
+                $scope.name = "footer"
+            })
+        })();
+    </script>
+</body>
+
+</html>

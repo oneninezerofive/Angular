@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app='my-app'>
+        <div ng-controller="testCtrl">姓名：{{name}}</div>
+        <p>姓名：{{name}}</p>
+    </div>
+
+
+    <script src="../js/angular.js"></script>
+    <script>
+        console.log(angular)
+        angular.module('my-app', [])
+            .controller('testCtrl', ($scope, $rootScope) => {
+                let _ = $scope
+                let __ = $rootScope
+                _.name = "yao"
+                __.name = "jing"
+            })
+            // vuex
+    </script>
+</body>
+
+</html>

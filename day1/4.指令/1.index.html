@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app='my-app' ng-controller="testCtrl" ng-init="name='yao'">
+        <ul>
+            <li ng-repeat="a in arr">
+                <p>姓名：{{a.name}}</p>
+                <p>技能：
+                    <span ng-repeat="b in a.skill">
+                        {{b}}
+                    </span>
+                </p>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="../js/angular.js"></script>
+    <script>
+        console.log(angular)
+        angular.module('my-app', [])
+            .controller('testCtrl', ($scope) => {
+                let _ = $scope
+                _.arr = [{
+                    name: 'yao',
+                    skill: ['ps', 'css']
+                }, {
+                    name: 'jing',
+                    skill: ['js', 'html']
+                }]
+            })
+    </script>
+</body>
+
+</html>

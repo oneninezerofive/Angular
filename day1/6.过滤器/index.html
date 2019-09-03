@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app='my-app'>
+        <div ng-controller="testCtrl">
+            姓名：{{name|uppercase}}
+            货币：{{num|currency:'￥'}}
+            时间：{{date|date}}
+        </div>
+    </div>
+
+
+    <script src="../js/angular.js"></script>
+    <script>
+        // 计算属性，函数式编程，
+        console.log(angular)
+        angular.module('my-app', [])
+            .controller('testCtrl', ($scope) => {
+                let _ = $scope
+                _.name = "jing"
+                _.date = new Date().getTime()
+                _.num = 123
+            })
+    </script>
+</body>
+
+</html>

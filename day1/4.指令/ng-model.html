@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app='my-app' ng-controller="testCtrl" ng-init="name='yao'">
+        <input ng-model="name" />
+        <textarea ng-model="name"></textarea>
+        <select ng-model="name">
+            <option value="{{name}}">{{name}}</option>
+            <option value="1">1</option>
+        </select>
+        <p>{{name}}</p>
+    </div>
+
+
+    <script src="../js/angular.js"></script>
+    <script>
+        console.log(angular)
+        angular.module('my-app', [])
+            .controller('testCtrl', ['$scope', ($scope) => {
+                // 不劫持this
+                console.log(this)
+                // 无生命周期
+                let _ = $scope
+                _.bool = true
+                _.name = 'yao'
+                _.toggle = () => {
+                    _.bool = !_.bool
+                }
+            }])
+    </script>
+</body>
+
+</html>

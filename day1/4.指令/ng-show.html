@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app='my-app' ng-controller="testCtrl" ng-init="name='yao'">
+        <button ng-click="toggle()">ok</button>
+        <p ng-show="bool">显示或者隐藏</p>
+        <p ng-if="bool">显示或者隐藏</p>
+    </div>
+
+
+    <script src="../js/angular.js"></script>
+    <script>
+        console.log(angular)
+        angular.module('my-app', [])
+            .controller('testCtrl', ($scope) => {
+                // M层 methods data computed watch
+                // 所有的函数和数据都放在回调函数里面
+                let _ = $scope
+                _.bool = true
+                _.toggle = () => {
+                    _.bool = !_.bool
+                }
+            })
+    </script>
+</body>
+
+</html>
